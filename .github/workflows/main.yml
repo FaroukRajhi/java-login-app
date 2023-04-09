@@ -19,7 +19,7 @@ on:
   
   # The steps that will run as part of this pipeline
   # we can define multiple jobs
-  jobs:
+jobs:
   
     # The first job is build
     build:

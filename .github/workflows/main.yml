@@ -1,0 +1,48 @@
+# Workflow name
+name: CI
+
+# Describe the trigger of The workflow (Active)
+on:
+  # We have multiple trigger
+  # First trigger is:
+  
+  # Trigger every push
+  push:
+    branches: [ main ]
+  # Each time we create a pull request that will be triggered
+  pull_request:
+    branches: [main]
+    
+  # Allow you to run this workflow manually from the actions tab
+  
+  workflow_dispatch:
+  
+  # The steps that will run as part of this pipeline
+  # we can define multiple jobs
+  jobs:
+  
+    # The first job is build
+    build:
+      
+      # The type of runner that the job will run on
+      # The machine that will run the pipeline
+      runs-on: ubuntu
+      
+      # Represent a sequence of tasks that will be executed as part of the job
+      steps:
+        
+        # First step : checkout your source code
+        # Check-out your repo under $GITHUB_WORKSPACE, so your job can access it
+
+        - uses: actions/checkout@v3 # Built-int action from documentation and marketplace.
+        
+        # Run a single command
+        - name: Run one-line script
+          run: echo Hello world
+          
+        - name: Run a multi-line script
+          run: |
+            echo Add other action to build,
+            echo test, and deploy your project
+    
+  
